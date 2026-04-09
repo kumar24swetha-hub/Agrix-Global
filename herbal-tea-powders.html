@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>AgriX Global | Herbal Tea Powders</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefaf2;
+            color: #2c2b26;
+            scroll-behavior: smooth;
+        }
+
+        /* ========= HEADER ========= */
+        .main-header {
+            background: linear-gradient(120deg, #2c5e3f, #1e3a2e);
+            color: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border-bottom: 1px solid rgba(255,255,240,0.2);
+        }
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+        .logo h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.9rem;
+            letter-spacing: -0.3px;
+            font-weight: 800;
+        }
+        .logo h1 i {
+            color: #f3b33d;
+            margin-right: 6px;
+        }
+        .logo p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-top: 6px;
+            letter-spacing: 0.3px;
+            font-weight: 500;
+        }
+        .header-tagline {
+            background: rgba(255,255,240,0.15);
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* category navigation */
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            background: white;
+            padding: 0.9rem 1rem;
+            border-bottom: 1px solid #e9dfd1;
+            position: sticky;
+            top: 0;
+            z-index: 99;
+            background: #fffcf7;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        .nav-cat-btn {
+            background: #f2ede5;
+            border: none;
+            padding: 0.65rem 1.7rem;
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #2c4b35;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .nav-cat-btn i {
+            font-size: 1rem;
+        }
+        .nav-cat-btn:hover {
+            background: #e1d4c4;
+            transform: translateY(-2px);
+        }
+        .nav-cat-btn.active {
+            background: linear-gradient(135deg, #2c5e3f, #1e3a2e);
+            color: white;
+            box-shadow: 0 4px 12px rgba(44,94,63,0.3);
+        }
+
+        /* main container */
+        .container {
+            max-width: 1280px;
+            margin: 2rem auto 3rem;
+            padding: 0 1.8rem;
+        }
+        .product-block {
+            margin-bottom: 2rem;
+        }
+        .block-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #2c5e3f, #4a7c5e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 2rem 1.5rem;
+            margin-top: 1rem;
+        }
+        .product-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: all 0.25s ease;
+            cursor: pointer;
+            border: 1px solid #f0e2d2;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 28px -12px rgba(0,0,0,0.15);
+            border-color: #e2cbaa;
+        }
+        .product-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background: #f7ede1;
+            display: block;
+        }
+        .product-info {
+            padding: 1rem 0.8rem 1.2rem;
+            text-align: center;
+        }
+        .product-name {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: #2a4b34;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .product-badge {
+            font-size: 0.7rem;
+            background: #efe3d4;
+            display: inline-block;
+            padding: 0.2rem 0.9rem;
+            border-radius: 50px;
+            margin-top: 8px;
+            color: #745c38;
+            font-weight: 600;
+        }
+
+        /* MODAL premium style */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.75);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.2s ease;
+        }
+        .modal-overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+        .modal-card {
+            background: linear-gradient(145deg, #ffffff, #fef8ed);
+            width: 90%;
+            max-width: 580px;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 30px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(203, 169, 106, 0.2);
+            animation: modalPop 0.2s ease;
+        }
+        @keyframes modalPop {
+            from { transform: scale(0.96); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .modal-header {
+            background: linear-gradient(120deg, #2c5e3f, #1e3a2e);
+            color: white;
+            padding: 1.2rem 1.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-header h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            line-height: 1;
+            cursor: pointer;
+            color: white;
+            transition: 0.1s;
+        }
+        .modal-body {
+            padding: 1.8rem 1.8rem 2rem;
+            background: #fffef7;
+        }
+        .specs-list {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 0.9rem 1.2rem;
+            margin-bottom: 1.8rem;
+            border-bottom: 1px solid #e8ddcf;
+            padding-bottom: 1.2rem;
+        }
+        .spec-label {
+            font-weight: 800;
+            color: #a07142;
+            font-size: 0.9rem;
+            letter-spacing: -0.2px;
+        }
+        .spec-value {
+            color: #2d4a2c;
+            font-weight: 500;
+        }
+        .caption-area {
+            background: #fef6ea;
+            border-left: 5px solid #e7b25c;
+            padding: 1rem 1.3rem;
+            border-radius: 24px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #4a3b28;
+            margin-top: 0.2rem;
+            font-weight: 500;
+        }
+
+
+
+        .home-button-wrap {
+            text-align: center;
+            margin: 1.5rem 0 0.5rem;
+        }
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #f3b33d, #d9981f);
+            color: #1e3a2e;
+            text-decoration: none;
+            padding: 0.9rem 1.8rem;
+            border-radius: 999px;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 10px 22px rgba(243,179,61,0.28);
+            transition: all 0.2s ease;
+        }
+        .home-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 26px rgba(243,179,61,0.34);
+        }
+
+        /* footer */
+        .footer {
+            background: linear-gradient(120deg, #1e2f28, #14231d);
+            color: #ddd2bd;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            margin-top: 3rem;
+            border-top: 1px solid #3a5a48;
+        }
+        .footer a {
+            color: #f3b33d;
+            text-decoration: none;
+        }
+        .footer .footer-icons {
+            margin-top: 12px;
+            font-size: 1.2rem;
+            word-spacing: 14px;
+        }
+        .footer-icons i {
+            margin: 0 6px;
+            transition: 0.2s;
+        }
+        .footer-icons i:hover {
+            color: #f3b33d;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 680px) {
+            .container { padding: 0 1rem; }
+            .product-grid { gap: 1rem; }
+            .block-title { font-size: 1.6rem; }
+            .nav-cat-btn { padding: 0.5rem 1.2rem; font-size: 0.85rem; }
+            .specs-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="header-container">
+        <div class="logo">
+            <h1><i class="fas fa-leaf"></i> Agrix Global</h1>
+            <p>Farm direct • Authentic Spices • Dehydrated & Herbal Powders</p>
+        </div>
+        <div class="header-tagline">
+            <i class="fas fa-truck"></i> Free shipping on bulk orders
+        </div>
+    </div>
+</header>
+
+<div class="category-nav">
+    <a href="spices.html" class="nav-cat-btn"><i class="fas fa-pepper-hot"></i> Spices</a>
+       <a href="dehydrated-powders.html" class="nav-cat-btn"><i class="fas fa-mortar-pestle"></i> Dehydrated Powders</a>
+    <a href="herbal-tea-powders.html" class="nav-cat-btn active"><i class="fas fa-mug-hot"></i> Herbal Tea Powders</a>
+</div>
+<div class="home-button-wrap">
+    <a href="index.html" class="home-btn"><i class="fas fa-home"></i> Go to Home Page</a>
+</div>
+
+<main class="container">
+    <div id="herbalSection" class="product-block">
+        <div class="block-title"><i class="fas fa-mug-hot"></i> Soothing Herbal Teas</div>
+        <div class="product-grid" id="herbalGridContainer"></div>
+    </div>
+</main>
+
+<footer class="footer">
+      <p>📞 +91 7397736407 | ✉️ info@agrixglobal.com</p>
+    <div class="footer-icons">
+
+  <a href="https://wa.me/917397736407" target="_blank">
+   <i class="fab fa-whatsapp"></i>
+</a>
+    </div>
+    <p style="margin-top: 15px;">© 2026 AgriX Global — Pure Nature, Pure Taste</p>
+</footer>
+
+<script>
+    // ---------- HERBAL TEA PRODUCTS (Updated from Images) ----------
+    const herbalList = [
+        {
+            name: "Chamomile Herbal Tea",
+            img: "chamomile.png",
+            specs: {
+                origin: "Tamil Nadu",
+                oilContent: "≥ 0.3%",
+                shelfLife: "18-24 months",
+                moisture: "≤ 10 - 12%",
+                bulkPacking: "10-25 kg kraft paper bags",
+                retailPacking: "Tea bags / pouches (customizable)"
+            }
+        },
+        {
+            name: "Moringa Herbal Tea",
+            img: "moringa.png",
+            specs: {
+                origin: "Tamil Nadu",
+                shelfLife: "18-24 months",
+                moisture: "≤ 7%",
+                bulkPacking: "10-25 kg food grade poly bags",
+                retailPacking: "Loose leaf packs (50g, 100g, 250g)"
+            }
+        },
+        {
+            name: "Hibiscus Herbal Tea",
+            img: "hibiscus.png",
+            specs: {
+                origin: "Tamil Nadu",
+                shelfLife: "18-24 months",
+                moisture: "≤ 10%",
+                bulkPacking: "10kg / 25kg food grade poly bags",
+                retailPacking: "Loose leaf packs (50g, 100g, 250g)"
+            }
+        },
+        {
+            name: "Butterfly Pea Herbal Tea",
+            img: "butterfly-tea.png",
+            specs: {
+                origin: "Tamil Nadu",
+                shelfLife: "18-24 months",
+                moisture: "≤ 10%",
+                bulkPacking: "5kg / 10kg food grade poly bags",
+                retailPacking: "Whole flower packs (10g, 25g, 50g), Tea bags (1-2 per bag)"
+            }
+        },
+        {
+            name: "Lemongrass Herbal Tea",
+            img: "lemon.png",
+            specs: {
+                origin: "Tamil Nadu",
+                shelfLife: "18-24 months",
+                moisture: "≤ 10%",
+                bulkPacking: "10/20kg food grade poly bags",
+                retailPacking: "Tea bags (1.5g - 2g), Loose leaf packs (50g, 100g, 250g)"
+            }
+        },
+        {
+            name: "Tulasi Herbal Tea",
+            img: "tulasi.png",
+            specs: {
+                origin: "Tamil Nadu",
+                shelfLife: "18-24 months",
+                moisture: "≤ 10%",
+                bulkPacking: "10/20kg food grade poly bags",
+                retailPacking: "Tea bags (1.5g - 2g), Loose leaf packs (50g, 100g, 250g)"
+            }
+        }
+    ];
+
+    function getCaptionText(productName) {
+        const captions = {
+            "Chamomile Herbal Tea": "Digestive health & sleep support.",
+            "Moringa Herbal Tea": "Fuel your body the natural way. High antioxidants, nutritional drink.",
+            "Hibiscus Herbal Tea": "Vibrant hibiscus - Refreshing herbal infusion.",
+            "Butterfly Pea Herbal Tea": "Sip the magic of blue.",
+            "Lemongrass Herbal Tea": "Pure citrus vibes from nature.",
+            "Tulasi Herbal Tea": "Sacred herb, powerful wellness."
+        };
+        return captions[productName] || "";
+    }
+
+    function renderProductGrid(containerId, itemsArray) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        container.innerHTML = '';
+
+        itemsArray.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+
+            const img = document.createElement('img');
+            img.src = item.img;
+            img.alt = item.name;
+            img.className = 'product-img';
+
+            const infoDiv = document.createElement('div');
+            infoDiv.className = 'product-info';
+
+            const nameSpan = document.createElement('div');
+            nameSpan.className = 'product-name';
+            nameSpan.innerText = item.name;
+
+            const badgeSpan = document.createElement('div');
+            badgeSpan.className = 'product-badge';
+            badgeSpan.innerText = 'Herbal Tea';
+
+            infoDiv.appendChild(nameSpan);
+            infoDiv.appendChild(badgeSpan);
+            card.appendChild(img);
+            card.appendChild(infoDiv);
+
+            card.addEventListener('click', () => {
+                openModal(item);
+            });
+
+            container.appendChild(card);
+        });
+    }
+
+    // Modal system
+    const modalOverlay = document.createElement('div');
+    modalOverlay.className = 'modal-overlay';
+    modalOverlay.innerHTML = `
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="modalProductTitle">Product</h3>
+                <button class="modal-close" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="specs-list" id="specsListContainer"></div>
+                <div class="caption-area" id="modalCaption"></div>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modalOverlay);
+
+    const closeModalBtn = modalOverlay.querySelector('.modal-close');
+    const modalTitle = document.getElementById('modalProductTitle');
+    const specsContainer = document.getElementById('specsListContainer');
+    const captionElem = document.getElementById('modalCaption');
+
+    function openModal(product) {
+        const specs = product.specs;
+
+        modalTitle.innerText = product.name;
+        
+        let specsHTML = `
+            <div class="spec-label">🌍 Origin</div><div class="spec-value">${specs.origin}</div>
+            <div class="spec-label">💨 Moisture</div><div class="spec-value">${specs.moisture}</div>
+            <div class="spec-label">⏳ Shelf Life</div><div class="spec-value">${specs.shelfLife}</div>
+        `;
+        
+        if(specs.oilContent) {
+            specsHTML += `<div class="spec-label">💧 Oil Content</div><div class="spec-value">${specs.oilContent}</div>`;
+        }
+
+        specsHTML += `
+            <div class="spec-label">📦 Bulk Packing</div><div class="spec-value">${specs.bulkPacking}</div>
+            <div class="spec-label">🛍️ Retail Packing</div><div class="spec-value">${specs.retailPacking}</div>
+        `;
+
+        specsContainer.innerHTML = specsHTML;
+        captionElem.innerText = getCaptionText(product.name);
+        modalOverlay.classList.add('active');
+    }
+
+    function closeModal() {
+        modalOverlay.classList.remove('active');
+    }
+
+    closeModalBtn.addEventListener('click', closeModal);
+
+    modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+            closeModal();
+        }
+    });
+
+    renderProductGrid('herbalGridContainer', herbalList);
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>AgriX Global | Origin Matters. Quality Travels.</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+:root{
+  --bg:#e3e5d7;
+  --paper:#efe7d8;
+  --sage:#6b8d79;
+  --leaf:#2e6f5e;
+  --leaf-2:#3c8a74;
+  --deep:#0f4d44;
+  --deep-2:#0a3d36;
+  --brown:#754a34;
+  --brown-2:#9b6445;
+  --gold:#dfbf83;
+  --gold-2:#f2d4a5;
+  --cream:#f5efe3;
+  --text:#f7f4ed;
+  --body:#22312e;
+  --muted:#5a6964;
+  --shadow:0 24px 45px rgba(20,32,28,.16);
+  --shadow-soft:0 14px 28px rgba(20,32,28,.12);
+  --radius:34px;
+  --radius-lg:42px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',sans-serif;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(126,171,145,.18), transparent 25%),
+    radial-gradient(circle at 80% 20%, rgba(92,132,97,.18), transparent 24%),
+    linear-gradient(180deg,#dde0d0 0%, #d7dacb 100%);
+  color:var(--body);
+  overflow-x:hidden;
+  line-height:1.55;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.22;
+  background:
+    radial-gradient(900px 420px at -10% 30%, rgba(30,101,77,.22), transparent 70%),
+    radial-gradient(680px 360px at 110% 60%, rgba(117,74,52,.18), transparent 70%);
+  z-index:-1;
+}
+
+.container{
+  width:min(1240px, calc(100% - 32px));
+  margin:0 auto;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  backdrop-filter:blur(18px);
+  background:rgba(243,238,226,.76);
+  border-bottom:1px solid rgba(68,92,83,.12);
+}
+
+.nav-wrapper{
+  min-height:82px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+
+.logo{
+  font-family:'Montserrat',sans-serif;
+  font-weight:800;
+  font-size:1.75rem;
+  letter-spacing:-.04em;
+  color:var(--deep);
+  text-decoration:none;
+  white-space:nowrap;
+}
+.logo span{color:#b7844f}
+
+.nav-links{
+  list-style:none;
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#2f453f;
+  font-weight:600;
+  font-family:'Montserrat',sans-serif;
+  font-size:.95rem;
+  position:relative;
+}
+
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  border-radius:4px;
+  background:linear-gradient(90deg,var(--deep),#8e5c41);
+  transition:width .28s ease;
+}
+.nav-links a:hover::after{width:100%}
+
+.btn-quote,
+.btn-primary,
+.btn-outline-gold{
+  border:none;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  font-family:'Montserrat',sans-serif;
+  font-weight:700;
+  border-radius:999px;
+  cursor:pointer;
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+}
+
+.btn-quote{
+  background:linear-gradient(180deg,var(--gold-2),#deb988);
+  color:#4e3425;
+  padding:12px 24px;
+  box-shadow:0 14px 24px rgba(124,84,53,.18);
+}
+
+.btn-primary{
+  background:linear-gradient(180deg,var(--gold-2),#deb988);
+  color:#4e3425;
+  padding:16px 34px;
+  box-shadow:0 16px 28px rgba(124,84,53,.22);
+}
+
+.btn-outline-gold{
+  background:rgba(255,255,255,.08);
+  color:#f8e8cb;
+  border:1.5px solid rgba(248,232,203,.62);
+  padding:15px 30px;
+  backdrop-filter:blur(6px);
+  box-shadow:0 12px 22px rgba(15,35,31,.18);
+}
+
+.btn-quote:hover,.btn-primary:hover,.btn-outline-gold:hover{
+  transform:translateY(-2px);
+}
+
+.mobile-menu-btn{
+  display:none;
+  color:var(--deep);
+  font-size:1.55rem;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+section{
+  position:relative;
+  padding:80px 0;
+}
+
+/* ===== HERO SECTION ===== */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  position:relative;
+  background: url('main.png') no-repeat center center;
+  background-size: cover;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.hero::before,
+.hero::after{
+  content: none;
+}
+
+.hero-grid{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  gap:0;
+  width:100%;
+}
+
+.hero-content{
+  max-width:820px;
+  margin:0 auto;
+  padding:24px 16px;
+}
+
+.hero-line-1,
+.hero-line-2{
+  display:block;
+  font-family:'Montserrat',sans-serif;
+  color:#fff9f0;
+  font-weight:800;
+  line-height:1.02;
+  letter-spacing:-.05em;
+  text-shadow:0 8px 18px rgba(0,0,0,.25);
+}
+
+.hero-line-1{font-size:clamp(2.65rem, 5.2vw, 4.9rem)}
+.hero-line-2{font-size:clamp(2.55rem, 5vw, 4.8rem)}
+
+.hero-subheadline{
+  margin:24px auto 34px;
+  max-width:600px;
+  color:#fef5e8;
+  font-size:1.12rem;
+  font-weight:400;
+  opacity:.96;
+  text-shadow:0 2px 4px rgba(0,0,0,0.2);
+}
+
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:18px;
+}
+
+.section-shell{
+  position:relative;
+  border-radius:56px;
+  padding:48px 32px;
+}
+
+.section-shell.deep{
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.05), transparent 24%),
+    linear-gradient(135deg,var(--deep) 0%, #145649 100%);
+  box-shadow:var(--shadow);
+  color:var(--text);
+}
+
+.section-shell.paper{
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.62)),
+    linear-gradient(145deg,#ebe4d6,#dfd8cb);
+  box-shadow:var(--shadow-soft);
+}
+
+.section-shell.earth{
+  background:
+    linear-gradient(135deg,#2b6f60 0%, #184f45 38%, #7b523d 100%);
+  box-shadow:var(--shadow);
+  color:var(--text);
+}
+
+.section-title{
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(2rem, 4vw, 3rem);
+  line-height:1.05;
+  margin-bottom:14px;
+  letter-spacing:-.045em;
+}
+
+.section-sub{
+  max-width:720px;
+  color:inherit;
+  opacity:.84;
+  margin-bottom:34px;
+  font-size:1.04rem;
+}
+
+.center{text-align:center;margin-left:auto;margin-right:auto}
+
+/* golden highlight box (clean & centered) */
+.golden-highlight-box{
+  margin: 24px auto 32px;
+  max-width: 720px;
+  border-radius: 36px;
+  padding: 32px 28px;
+  background: linear-gradient(180deg, rgba(248, 238, 216, 0.98), rgba(235, 221, 191, 0.96));
+  box-shadow: 0 18px 32px rgba(104, 76, 45, 0.16);
+  text-align: center;
+  backdrop-filter: blur(2px);
+}
+
+.green-text{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.75rem, 4vw, 2.7rem);
+  letter-spacing: -0.05em;
+  color: #2D6A4F;  /* dark green, highly visible on light golden background */
+}
+
+.gold-text{
+  color: #b47c44;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  margin-top: 8px;
+}
+
+/* about mission box (white/golden border) */
+.about-mission-box{
+  background: linear-gradient(180deg, #fffef9, #fef8ed);
+  border-radius: 36px;
+  padding: 36px 32px;
+  margin: 16px 0 0;
+  box-shadow: 0 18px 32px rgba(40, 35, 28, 0.12);
+  border: 1px solid rgba(168, 122, 61, 0.35);
+  text-align: left;
+  color: #2c3e38;
+}
+
+.about-mission-box h3{
+  font-family:'Montserrat',sans-serif;
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--deep);
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+.about-mission-box .tagline{
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #7b5a3e;
+  border-left: 4px solid var(--gold);
+  padding-left: 16px;
+  margin: 12px 0 20px 0;
+}
+.about-mission-box .mission-title, .about-mission-box .cert-title{
+  font-family:'Montserrat',sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  margin-top: 24px;
+  margin-bottom: 8px;
+  color: #3e6b5a;
+}
+.about-mission-box .cert-title{
+  margin-top: 28px;
+}
+.about-mission-box p{
+  line-height: 1.5;
+  margin-bottom: 6px;
+  color: #2f403a;
+}
+.about-mission-box .gold-accent{
+  color: #b47c44;
+  font-weight: 600;
+}
+
+/* certification cards */
+.cert-grid-cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+  margin-top: 16px;
+}
+.cert-card{
+  padding:28px 22px;
+  text-align:center;
+  background:linear-gradient(180deg, rgba(255,255,255,.9), rgba(240,233,218,.9));
+  min-height:182px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  border:1px solid rgba(168,122,61,.18);
+  border-radius:32px;
+  box-shadow:var(--shadow-soft);
+}
+.cert-card i{
+  width:74px;
+  height:74px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  margin-bottom:14px;
+  background:rgba(163,117,58,.08);
+  border:1px solid rgba(163,117,58,.15);
+  color:#9d7038;
+  font-size:1.75rem;
+}
+.cert-card p{
+  color:#3e4039;
+  font-weight:800;
+  font-family:'Montserrat',sans-serif;
+  font-size:1.1rem;
+}
+.cert-card,
+.why-card,
+.step{
+  transition:transform .32s ease, box-shadow .32s ease, border-color .32s ease, filter .32s ease;
+  border:1px solid transparent;
+}
+
+.why-card:hover{
+  transform:translateY(-10px);
+  border-color:rgba(46,111,94,.58);
+  box-shadow:
+    0 24px 44px rgba(20,32,28,.20),
+    0 0 0 1px rgba(46,111,94,.22),
+    0 0 0 6px rgba(107,141,121,.10),
+    0 0 22px rgba(46,111,94,.22);
+}
+
+.cert-card:hover,
+.step:hover{
+  transform:translateY(-10px);
+  border-color:rgba(183,134,76,.62);
+  box-shadow:
+    0 24px 44px rgba(56,40,24,.20),
+    0 0 0 1px rgba(183,134,76,.24),
+    0 0 0 6px rgba(223,191,131,.12),
+    0 0 24px rgba(183,134,76,.24);
+}
+
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.why-card{
+  background:linear-gradient(180deg, rgba(248,239,223,.96), rgba(240,230,214,.96));
+  color:#31403a;
+  padding:30px 24px;
+  border-radius:32px;
+  min-height:100%;
+  position:relative;
+  overflow:hidden;
+  box-shadow:var(--shadow-soft);
+}
+.why-card i{
+  width:74px;
+  height:74px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  margin:0 auto 18px;
+  background:rgba(18,84,72,.08);
+  border:1px solid rgba(18,84,72,.14);
+  color:var(--deep);
+  font-size:1.75rem;
+}
+.why-card h3{
+  font-family:'Montserrat',sans-serif;
+  font-weight:700;
+  margin-bottom:10px;
+}
+.why-card p{color:#586560}
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+}
+.product-card{
+  background:linear-gradient(180deg, rgba(11,58,50,.92), rgba(7,42,36,.98));
+  color:var(--text);
+  border-radius:32px;
+  overflow:hidden;
+  box-shadow:var(--shadow-soft);
+}
+.product-img{
+  height:238px;
+  background-size:cover;
+  background-position:center;
+  position:relative;
+}
+.product-img::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.20));
+}
+.product-card h3{
+  padding:24px 22px 28px;
+  font-size:1.3rem;
+  font-family:'Montserrat',sans-serif;
+  text-align:center;
+  font-weight:700;
+}
+
+.process-steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+}
+.step{
+  text-align:center;
+  padding:28px 20px 26px;
+  background:linear-gradient(180deg, rgba(248,239,223,.96), rgba(239,227,208,.96));
+  color:#34413c;
+  border-radius:32px;
+  box-shadow:var(--shadow-soft);
+  position:relative;
+}
+.step-number{
+  width:78px;
+  height:78px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  margin:0 auto 16px;
+  font-family:'Montserrat',sans-serif;
+  font-weight:800;
+  font-size:1.65rem;
+  color:#4e3425;
+  background:linear-gradient(180deg,var(--gold-2),#dfbc8b);
+  box-shadow:0 16px 26px rgba(130,94,56,.18);
+}
+.step h3{
+  font-family:'Montserrat',sans-serif;
+  font-weight:700;
+  margin-bottom:8px;
+}
+.ensure-wrapper{
+  border-radius:38px;
+  padding:34px 30px;
+  background:linear-gradient(180deg, rgba(15,77,68,.95), rgba(13,61,54,.98));
+  color:var(--text);
+  box-shadow:var(--shadow);
+}
+.ensure-list{
+  list-style:none;
+  display:grid;
+  gap:18px;
+}
+.ensure-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  padding:16px 18px;
+  border-radius:22px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+}
+.ensure-list li i{
+  width:46px;
+  height:46px;
+  flex:0 0 46px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:rgba(244,225,187,.14);
+  color:#f5e1b4;
+}
+.gold-text{
+  color:#a87a3d;
+  font-weight:700;
+}
+footer{
+  padding:0 0 30px;
+}
+.footer-shell{
+  border-radius:44px 44px 0 0;
+  background:
+    linear-gradient(135deg,#184c43 0%, #0f3f38 38%, #704a36 100%);
+  color:#f6f2e8;
+  padding:56px 34px 28px;
+  box-shadow:var(--shadow);
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.15fr .9fr .9fr 1fr;
+  gap:28px;
+}
+.footer-col h4{
+  font-family:'Montserrat',sans-serif;
+  margin-bottom:14px;
+  font-size:1.15rem;
+  color:#f0d39d;
+}
+.footer-col p, .footer-col a{
+  color:#f7f2e8;
+  opacity:.92;
+  text-decoration:none;
+  display:block;
+  margin-bottom:10px;
+}
+.social-icons{
+  display:flex;
+  gap:12px;
+  margin-top:12px;
+  flex-wrap:wrap;
+}
+.social-icons a{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  color:#f4d7a4;
+}
+.copyright{
+  margin-top:28px;
+  padding-top:18px;
+  border-top:1px solid rgba(255,255,255,.12);
+  text-align:center;
+  color:#eee8dd;
+  opacity:.9;
+  font-size:.92rem;
+}
+.leaf-bg{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+}
+.leaf-bg span{
+  position:absolute;
+  border-radius:58% 42% 53% 47% / 64% 39% 61% 36%;
+  background:linear-gradient(145deg, rgba(73,122,96,.14), rgba(31,74,61,.08));
+  filter:blur(.2px);
+  transform:rotate(var(--r,0deg));
+}
+.leaf-bg .a{width:260px;height:420px;left:-120px;top:50px;--r:-28deg}
+.leaf-bg .b{width:220px;height:360px;right:-90px;bottom:80px;--r:24deg}
+.leaf-bg .c{width:160px;height:280px;right:22%;top:-40px;--r:-12deg}
+
+@media (max-width:1100px){
+  .hero-grid{grid-template-columns:1fr}
+  .why-grid,
+  .product-grid{grid-template-columns:repeat(2,1fr)}
+  .cert-grid-cards{grid-template-columns:repeat(2,1fr)}
+  .process-steps{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:860px){
+  .mobile-menu-btn{display:block}
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:82px;
+    left:16px;
+    right:16px;
+    background:rgba(244,239,228,.98);
+    border:1px solid rgba(68,92,83,.12);
+    border-radius:24px;
+    padding:18px 18px 20px;
+    box-shadow:var(--shadow-soft);
+    flex-direction:column;
+    align-items:flex-start;
+    gap:16px;
+  }
+  .nav-links.show{display:flex}
+  .btn-quote{display:none}
+  section{padding:70px 0}
+  .section-shell{padding:36px 22px}
+  .hero{
+    min-height:auto;
+    padding:108px 0 76px;
+    background-position:center top;
+  }
+  .hero-grid{min-height:unset}
+  .hero-content{max-width:100%; padding:18px 14px;}
+  .hero-line-1{font-size:clamp(2.2rem, 8vw, 3.6rem)}
+  .hero-line-2{font-size:clamp(2rem, 7vw, 3.3rem)}
+  .hero-subheadline{font-size:1rem; margin:18px auto 28px; max-width:560px;}
+  .hero-buttons{flex-direction:column;align-items:center}
+  .btn-primary,.btn-outline-gold{width:100%;max-width:300px}
+}
+@media (max-width:640px){
+  .container{width:min(100% - 20px, 1240px)}
+  .why-grid,
+  .product-grid,
+  .cert-grid-cards,
+  .process-steps,
+  .footer-grid{grid-template-columns:1fr}
+  .hero{
+    min-height:auto;
+    padding:104px 0 64px;
+    background-size:contain;
+    background-position:center top;
+    background-repeat:no-repeat;
+    align-items:flex-start;
+  }
+  .hero-content{
+    padding:18px 10px 0;
+  }
+  .hero-line-1,
+  .hero-line-2{
+    text-shadow:0 10px 28px rgba(0,0,0,.48);
+  }
+  .hero-subheadline{
+    font-size:.98rem;
+    line-height:1.6;
+    text-shadow:0 6px 16px rgba(0,0,0,.42);
+  }
+  .footer-shell{padding:42px 22px 24px}
+  .golden-highlight-box{padding:24px 18px;}
+  .about-mission-box{padding: 26px 20px;}
+  .about-mission-box h3{font-size:1.6rem;}
+}
+.btn-view-details {
+  display: inline-block;
+  background: linear-gradient(135deg, #2c5e3f, #1e3a2e);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: 0.2s;
+  font-family: 'Montserrat', sans-serif;
+}
+.btn-view-details:hover {
+  background: #f3b33d;
+  color: #2c5e3f;
+  transform: translateY(-2px);
+}
+@media (max-width:570px){
+  .hero{
+    min-height: 60vh;
+    padding: 0;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat;
+    align-items: center;
+  }
+}
+/* ===== Bigger Logo (Enhanced) ===== */
+.nav-wrapper{
+  min-height: 110px;
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo img{
+  display: block;
+  height: 90px !important;
+  width: auto !important;
+  max-width: 260px;
+  object-fit: contain;
+}
+
+/* Tablet */
+@media (max-width: 860px){
+  .nav-wrapper{
+    min-height: 92px;
+  }
+
+  .logo img{
+    height: 72px !important;
+    max-width: 210px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px){
+  .nav-wrapper{
+    min-height: 82px;
+  }
+
+  .logo img{
+    height: 62px !important;
+    max-width: 180px;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+<div class="container nav-wrapper">
+<div class="logo">
+<img src="logo.jpg" alt="AgriX Global" style="height: 55px; width: auto; object-fit: contain;">
+</div>
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+<ul class="nav-links" id="navLinks">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#certified">Certifications</a></li>
+<li><a href="#why">Why Us</a></li>
+<li><a href="#products">Products</a></li>
+<li><a href="#process">Process</a></li>
+</ul>
+<a href="#contact" class="btn-quote">Get Quote →</a>
+</div>
+</header>
+<main>
+<section id="home" class="hero" role="button" aria-label="Scroll to products" tabindex="0">
+<div class="container hero-grid"></div>
+</section>
+
+
+<!-- about mission box (exact content) -->
+<section id="about">
+<div class="container">
+<div class="section-shell earth">
+<div class="leaf-bg"><span class="a"></span><span class="b"></span><span class="c"></span></div>
+<h2 class="section-title center">About Us</h2>
+
+<!-- golden highlight box (clean, centered) -->
+<div class="golden-highlight-box">
+<div class="green-text">ROOTED IN QUALITY</div>
+<div class="gold-text">TRUSTED WORLDWIDE</div>
+</div>
+
+<!-- about mission box (exact content) -->
+<div class="about-mission-box">
+<h3>AgriX Global</h3>
+<div class="tagline">AgriX Global delivers premium Indian Agri Products to International Markets with quality &amp; reliability</div>
+<div class="mission-title"><i class="fas fa-leaf" style="margin-right: 8px; color: #6f9e7c;"></i> Our Mission</div>
+<p>Maintaining trust, sustainability and long term business</p>
+<div class="cert-title"><i class="fas fa-shield-alt" style="margin-right: 8px;"></i> Trusted &amp; certified exports</div>
+<p>Our products comply with global food safety standards including certifications from <span class="gold-accent">Agricultural &amp; Processed food products export development Authority</span>, <span class="gold-accent">food safety and standards Authority of India</span> &amp; <span class="gold-accent">International organization for Standardization</span>.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="products">
+<div class="container">
+<div class="section-shell deep">
+<h2 class="section-title center">Premium Product Gallery</h2>
+<p class="section-sub center">India’s finest spices, dry fruits, and herbal powders — export excellence</p>
+<div class="product-grid">
+  <div class="product-card">
+    <div class="product-img" style="background-image:url('spices.png');"></div>
+    <h3>Premium Spices & Dry Fruits</h3>
+    <div style="text-align: center; margin-top: 12px; margin-bottom: 20px;">
+      <a href="spices.html" class="btn-view-details">View All Details →</a>
+    </div>
+  </div>
+  <div class="product-card">
+    <div class="product-img" style="background-image:url('tea.png');"></div>
+    <h3>Herbal Tea Collection</h3>
+    <div style="text-align: center; margin-top: 12px; margin-bottom: 20px;">
+      <a href="herbal-tea-powders.html" class="btn-view-details">View All Details →</a>
+    </div>
+  </div>
+  <div class="product-card">
+    <div class="product-img" style="background-image:url('dehydrate.png');"></div>
+    <h3>Dehydrated  Powders</h3>
+    <div style="text-align: center; margin-top: 12px; margin-bottom: 20px;">
+      <a href="dehydrated-powders.html" class="btn-view-details">View All Details →</a>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="why">
+<div class="container">
+<div class="section-shell paper">
+<h2 class="section-title center" style="color:var(--deep);">Why Choose AgriX Global</h2>
+<div class="why-grid">
+<div class="why-card"><i class="fas fa-chart-line"></i><h3>100% Traceability</h3><p>Blockchain-enabled tracking from farm to shelf.</p></div>
+<div class="why-card"><i class="fas fa-hand-holding-heart"></i><h3>Farm-Direct Sourcing</h3><p>No middlemen, fair prices, consistent quality.</p></div>
+<div class="why-card"><i class="fas fa-clipboard-check"></i><h3>Global Compliance</h3><p>Strict food safety & international quality standards.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- Certified for Global Trade Section -->
+<section id="certified">
+<div class="container">
+<div class="section-shell paper">
+<h2 class="section-title center" style="color:var(--deep);">Certified for Global Trade</h2>
+<p class="section-sub center" style="color:#5d6c66;">Internationally recognized certifications that guarantee trust and safety</p>
+<div class="cert-grid-cards">
+<div class="cert-card"><i class="fas fa-shield-alt"></i><p>HACCP</p></div>
+<div class="cert-card"><i class="fas fa-utensils"></i><p>FSSAI</p></div>
+<div class="cert-card"><i class="fas fa-certificate"></i><p>ISO 22000</p></div>
+<div class="cert-card"><i class="fas fa-seedling"></i><p>APEDA</p></div>
+</div>
+</div>
+</div>
+</section>
+
+
+
+<section id="process">
+<div class="container">
+<div class="section-shell paper">
+<h2 class="section-title center" style="color:var(--deep);">Transparent Export Process</h2>
+<p class="section-sub center" style="color:#5d6c66;">From Indian farms to global destinations — seamless and ethical</p>
+<div class="process-steps">
+<div class="step"><div class="step-number">1</div><h3>Farm Sourcing</h3><p>Direct partnerships with certified growers</p></div>
+<div class="step"><div class="step-number">2</div><h3>Quality Check</h3><p>Multi-level lab testing & sorting</p></div>
+<div class="step"><div class="step-number">3</div><h3>Packaging</h3><p>Eco-friendly, moisture-proof packs</p></div>
+<div class="step"><div class="step-number">4</div><h3>Global Shipping</h3><p>End-to-end logistics & customs clearance</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="quality">
+<div class="container">
+<div class="section-shell earth">
+<h2 class="section-title center">We Ensure</h2>
+<div class="ensure-wrapper">
+<ul class="ensure-list">
+<li><i class="fas fa-broom"></i><span><span class="gold-text">Proper cleaning & grading</span> – advanced sorting technology for premium export quality.</span></li>
+<li><i class="fas fa-temperature-low"></i><span><span class="gold-text">Hygienic Processing</span> in state-of-the-art, zero-contamination facilities.</span></li>
+<li><i class="fas fa-flask"></i><span><span class="gold-text">Laboratory Testing</span> for pesticide residue, aflatoxin, and nutritional profile.</span></li>
+<li><i class="fas fa-tint"></i><span><span class="gold-text">Moisture Control</span>& advanced drying to preserve natural aroma and shelf life.</span></li>
+<li><i class="fas fa-lock"></i><span><span class="gold-text">Safe Export Packaging</span> – food-grade, moisture-proof, and shock-resistant for international transit.</span></li>
+</ul>
+<p style="margin-top:24px;text-align:center;font-size:1.08rem;font-weight:600;">Quality Assurance is our <span class="gold-text">Highest Priority</span> — every batch is 100% export-ready.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer id="contact">
+<div class="container">
+<div class="footer-shell">
+<div class="footer-grid">
+<div class="footer-col"><h4>AgriX Global</h4><p>Exporting the finest Indian agricultural products with integrity and global quality standards.</p></div>
+<div class="footer-col"><h4>Quick Links</h4><a href="#home">Home</a><a href="#about">About</a><a href="#certified">Certifications</a><a href="#products">Products</a></div>
+<div class="footer-col"><h4>Products</h4><a href="spices.html">Spices</a><a href="herbal-tea-powders.html">Herbal Powders</a><a href="dehydrated-powders.html">Dehydrated Range</a></div>
+<div class="footer-col"><h4>Connect</h4><p><i class="fas fa-map-marker-alt"></i> Tamil Nadu, India</p><p><i class="fas fa-envelope"></i> info@agrixglobal.com</p><p><i class="fas fa-phone-alt"></i> +91 7397736407</p><div class="social-icons"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-whatsapp"></i></a></div></div>
+</div>
+<div class="copyright"><p>© 2026 AgriX Global — Origin Matters. Quality Travels. All rights reserved.</p></div>
+</div>
+</div>
+</footer>
+
+<script>
+const mobileBtn = document.getElementById('mobileMenuBtn');
+const navLinks = document.getElementById('navLinks');
+if (mobileBtn) {
+  mobileBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+}
+
+const heroSection = document.querySelector('.hero');
+const productsSection = document.querySelector('#products');
+if (heroSection && productsSection) {
+  const goToProducts = () => {
+    productsSection.scrollIntoView({ behavior: 'smooth' });
+    if (navLinks.classList.contains('show')) {
+      navLinks.classList.remove('show');
+    }
+  };
+  heroSection.addEventListener('click', goToProducts);
+  heroSection.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      goToProducts();
+    }
+  });
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href === "#" || href === "") return;
+    const target = document.querySelector(href);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+      if (navLinks.classList.contains('show')) {
+        navLinks.classList.remove('show');
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>
