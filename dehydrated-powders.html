@@ -341,6 +341,28 @@
                 font-size: 0.95rem;
             }
         }
+				@media (max-width: 680px) {
+    .container { padding: 0 1rem; }
+    .product-grid { gap: 1rem; }
+    .block-title { font-size: 1.6rem; }
+    .nav-cat-btn { padding: 0.5rem 1.2rem; font-size: 0.85rem; }
+
+    /* Mobile: show full product image without cropping */
+    .product-card {
+        overflow: hidden;
+    }
+    .product-img {
+        height: auto !important;
+        max-height: none !important;
+        object-fit: contain !important;
+        aspect-ratio: auto !important;
+        background: #fff;
+        padding: 8px;
+    }
+    .product-info {
+        padding-top: 0.8rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -362,9 +384,9 @@
 
 <div class="category-nav">
 
-    <a href="spices.html" class="nav-cat-btn"><i class="fas fa-pepper-hot"></i> Spices</a>
-     <a href="dehydrated-powders.html" class="nav-cat-btn active"><i class="fas fa-mortar-pestle"></i> Dehydrated Powders</a>
-    <a href="herbal-tea-powders.html" class="nav-cat-btn"><i class="fas fa-mug-hot"></i> Herbal Tea Powders</a>
+    <a href="category/spices.html" class="nav-cat-btn"><i class="fas fa-pepper-hot"></i> Spices</a>
+     <a href="category/dehydrated-powders.html" class="nav-cat-btn active"><i class="fas fa-mortar-pestle"></i> Dehydrated Powders</a>
+    <a href="category/herbal-tea-powders.html" class="nav-cat-btn"><i class="fas fa-mug-hot"></i> Herbal Tea Powders</a>
 </div>
     <div class="header-home-wrap">
         <a href="index.html" class="home-btn"><i class="fas fa-house"></i>Go to Home Page</a>
@@ -377,13 +399,13 @@
 </main>
 
 <footer class="footer">
-       <p>📞 +91 7397736407  |  ✉️ info@agrixglobal.com</p>
+       <p>📞 +91 7397736407  |  ✉️ info.agrixglobal@gmail.com</p>
     <div class="footer-icons">
           <a href="https://wa.me/917397736407" target="_blank">
    <i class="fab fa-whatsapp"></i>
 </a>
     </div>
-    <p style="margin-top: 15px;">© 2026 AgriX Global — Pure Nature, Pure Taste</p>
+    <p style="margin-top: 15px;">© 2026 AgriX Global —  Pure Taste</p>
 </footer>
 
 <script>
@@ -565,7 +587,7 @@
             nameSpan.innerText = item.name;
             const badgeSpan = document.createElement('div');
             badgeSpan.className = 'product-badge';
-            badgeSpan.innerText = 'Dehydrated Powder';
+            badgeSpan.innerText = 'Specification';
             infoDiv.appendChild(nameSpan);
             infoDiv.appendChild(badgeSpan);
             card.appendChild(img);
